@@ -1,4 +1,4 @@
-name: Deploy Hugo site to GitHub Pages (Stable - Peaceiris Core)
+name: deploy
 
 on:
   push:
@@ -15,11 +15,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout source (with submodules)
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v3
       with:
-        submodules: true
+        submodules: recursive
         fetch-depth: 0
+        ref: ${{ github.sha }}
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
@@ -30,14 +30,15 @@ jobs:
     - name: Build
       run: hugo --minify
 
-    - name: List current directory
-      run: ls -al
-    
-    - name: List public directory
-      run: ls -al public || echo "public directory not found"
-
-    - name: Deploy to gh-pages branch
+    - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ${{ github.workspace }}/public
+        publish_dir: ./public
+
+    - name: Trigger GitHub Pages build
+      run: |
+        curl -X POST \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          https://api.github.com/repos/${{ github.repository }}/pages/builds
