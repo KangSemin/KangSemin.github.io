@@ -30,6 +30,12 @@ jobs:
     - name: Build
       run: hugo --minify
 
+    - name: List current directory
+      run: ls -al
+    
+    - name: List public directory
+      run: ls -al public || echo "public directory not found"
+
     - name: Deploy to gh-pages branch
       uses: peaceiris/actions-gh-pages@v3
       with:
