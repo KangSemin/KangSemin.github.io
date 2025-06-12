@@ -1,4 +1,4 @@
-name: Deploy Hugo site to GitHub Pages (Stable)
+name: Deploy Hugo site to GitHub Pages (Stable - Peaceiris Core)
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout source
+    - name: Checkout source (with submodules)
       uses: actions/checkout@v3
       with:
         submodules: true
@@ -35,11 +35,3 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./public
-
-    - name: Force GitHub Pages redeploy (API trigger)
-      shell: bash
-      run: |
-        curl -X POST \
-          -H "Accept: application/vnd.github+json" \
-          -H "Authorization: Bearer ${{ secrets.GH_PAGES_DEPLOY_TOKEN }}" \
-          https://api.github.com/repos/KangSemin/KangSemin.github.io/pages/builds
