@@ -38,9 +38,6 @@ jobs:
         publish_dir: ./public
 
     - name: Trigger GitHub Pages Deploy
-      run: |
-      curl -X POST \
-        -H "Accept: application/vnd.github+json" \
-        -H "Authorization: Bearer ${{ secrets.GH_PAGES_DEPLOY_TOKEN }}" \
-        https://api.github.com/repos/KangSemin/KangSemin.github.io/pages/builds
+      run: curl -X POST -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.GH_PAGES_DEPLOY_TOKEN }}" https://api.github.com/repos/KangSemin/KangSemin.github.io/pages/builds
+
   
