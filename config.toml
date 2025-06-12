@@ -1,0 +1,37 @@
+baseURL = 'https://KangSemin.github.io/'
+languageCode = 'ko'
+title = 'Catharsis'
+theme = 'PaperMod'
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  author = "Semin"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowToc = true
+  ShowCodeCopyButtons = true
+  comments = false
+  defaultTheme = "dark"
+
+  # 사이트 설명
+  description = "기술 블로그임을 호소하는 블로그"
+  keywords = ["Spring", "CS", "Algorithm", "Design Pattern", "기술블로그"]
+
+  # 소셜 프로필
+  socialIcons = [
+    { name = "github", url = "https://github.com/KangSemin" },
+    { name = "email", url = "mailto:semin15151@gmail.com" }
+  ]
+
+    [params.profileMode]
+    enabled = true
+    title = "Semin"
+    subtitle = "기술 블로그인 척 하는 일기장"
+    imageUrl = "images/avatar.png"
+
+
+[markup]
+  [markup.highlight]
+    noClasses = false
