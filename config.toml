@@ -1,37 +1,67 @@
-baseURL = 'https://KangSemin.github.io/'
-languageCode = 'ko'
-title = 'Catharsis'
-theme = 'PaperMod'
+baseURL = "https://kangsemin.github.io/"
+title = "강세민 기술블로그"
+defaultContentLanguage = "ko"
+languageCode = "ko-kr"
+theme = "PaperMod"
 
 [pagination]
   pagerSize = 10
 
 [params]
+  env = "production"
+
+  title = "강세민 기술블로그"
+  description = "스프링, CS, 디자인패턴, 알고리즘 외 기타등등 기록용"
+  keywords = ["스프링", "CS", "디자인패턴", "알고리즘"]
   author = "Semin"
+
+  ShowRelativeTime = false
+  DateFormat = "2006-01-02 15:04"
+
   ShowReadingTime = true
   ShowShareButtons = true
-  ShowToc = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
   comments = false
-  defaultTheme = "dark"
+  defaultTheme = "auto"
 
-  # 사이트 설명
-  description = "기술 블로그임을 호소하는 블로그"
-  keywords = ["Spring", "CS", "Algorithm", "Design Pattern", "기술블로그"]
-
-  # 소셜 프로필
   socialIcons = [
     { name = "github", url = "https://github.com/KangSemin" },
     { name = "email", url = "mailto:semin15151@gmail.com" }
   ]
 
-    [params.profileMode]
+  [params.profileMode]
     enabled = true
-    title = "Semin"
-    subtitle = "기술 블로그인 척 하는 일기장"
-    imageUrl = "images/avatar.png"
+    title = "대충 타이틀"
+    subtitle = "아무튼 기술블로그임~"
+    imageUrl = "images/profile.png"
+    imageTitle = "My Profile"
+    imageWidth = 120
+    imageHeight = 120
+   
+    buttons = [
+      { name = "Posts", url = "/posts" },
+    ]
 
+[menu]
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts"
+    weight = 1
+
+  [[menu.main]]
+    name = "About"
+    url = "/about"
+    weight = 2
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
 
 [markup]
-  [markup.highlight]
-    noClasses = false
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[services]
+  [services.googleAnalytics]
+    id = ""
