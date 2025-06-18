@@ -1,5 +1,5 @@
 baseURL = "https://kangsemin.github.io/"
-title = "강세민 기술블로그"
+title = "브레인스토밍"
 defaultContentLanguage = "ko"
 languageCode = "ko-kr"
 theme = "PaperMod"
@@ -18,13 +18,16 @@ theme = "PaperMod"
   ShowRelativeTime = false
   DateFormat = "2006-01-02 15:04"
 
+  ShowSearch = true
   ShowReadingTime = true
   ShowShareButtons = true
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
   comments = false
-  defaultTheme = "auto"
+
+  disableThemeToggle = false
+  defaultTheme = "dark"
 
   socialIcons = [
     { name = "github", url = "https://github.com/KangSemin" },
@@ -54,6 +57,22 @@ theme = "PaperMod"
     name = "About"
     url = "/about"
     weight = 2
+
+  [[menu.main]]
+    name = "Categories"
+    url = "/categories"
+    weight = 3
+
+  [[menu.main]]
+    name = "Tags"
+    url = "/tags"
+    weight = 4
+
+  [[menu.main]]
+    name = "Search"
+    url = "/search"
+    weight = 5
+
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
